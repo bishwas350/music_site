@@ -1,5 +1,6 @@
 import FutureCorse from "./component/FutureCorse"
 import HeroSection from "./component/HeroSection"
+import InfaniteCard from "./component/InfaniteCard"
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
       <div className="">
         <HeroSection/>
         <FutureCorse/>
+        <InfaniteCard/>
       </div>
     </main>
     </>

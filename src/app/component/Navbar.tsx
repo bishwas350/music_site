@@ -6,7 +6,8 @@ function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
   return (
     <>
-        <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
+       <div className="">
+       <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 px-5 py-3", className)}>
         <Menu setActive={setActive}>
             <MenuItem setActive={setActive} active={active} item ="Home"/>
         <MenuItem setActive={setActive} active={active} item="Product">
@@ -20,6 +21,7 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="About Us"/>
         </Menu>
         </div>
+       </div>
     </>
   )
 }

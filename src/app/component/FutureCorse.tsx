@@ -25,7 +25,7 @@ function FutureCorse() {
             Learn With the Best
           </p>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 p-4">
           <div className="grid sm:grid-cols-2  grid-cols-1 lg:grid-cols-3 justify-center gap-8">
             {futureCourse.map((course: Course) => (
               <div key={course.id} className="flex justify-center">

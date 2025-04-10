@@ -1,6 +1,7 @@
 import FutureCorse from "./component/FutureCorse"
 import HeroSection from "./component/HeroSection"
 import InfaniteCard from "./component/InfaniteCard"
+import Repple from "./component/Repple"
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         <HeroSection/>
         <FutureCorse/>
         <InfaniteCard/>
+        <Repple/>
       </div>
     </main>
     </>

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
 import { cn } from "../utils/cn";
+import { Toggole } from "@/components/Toggole";
 function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
   return (
@@ -19,6 +20,7 @@ function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About Us"/>
+        
         </Menu>
         </div>
        </div>

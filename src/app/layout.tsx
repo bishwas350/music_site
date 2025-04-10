@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./component/Navbar";
 import { ThemeProvider } from "@/components/theme-provider"
+import Navbarui from "./component/Navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,10 +35,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        <div className=" flex justify-center items-center w-full relative">
-        <Navbar/>
+            <div className=" relative w-full">
+        <Navbarui/>
 
-        </div>
+            </div>
         {children}
         </ThemeProvider>
       </body>

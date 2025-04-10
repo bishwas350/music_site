@@ -1,31 +1,99 @@
 'use client'
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "../utils/cn";
-import { Toggole } from "@/components/Toggole";
-function Navbar({ className }: { className?: string }) {
-    const [active, setActive] = useState<string | null>(null);
+
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/app/component/ui/resizable-navbar";
+import { useState } from "react";
+function Navbarui () {
+  const navItems = [
+    {
+      name: "Features",
+      link: "#features",
+    },
+    {
+      name: "Pricing",
+      link: "#pricing",
+    },
+    {
+      name: "Contact",
+      link: "#contact",
+    },
+  ];
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <>
-       <div className="">
-       <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 px-5 py-3", className)}>
-        <Menu setActive={setActive}>
-            <MenuItem setActive={setActive} active={active} item ="Home"/>
-        <MenuItem setActive={setActive} active={active} item="Product">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/">Web Development</HoveredLink>
-            <HoveredLink href="/">Interface Design</HoveredLink>
-            <HoveredLink href="/">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/">Branding</HoveredLink>
+    
+    
+    <div className="relative w-full">
+      <Navbar>
+        {/* Desktop Navigation */}
+        <NavBody>
+          <NavbarLogo />
+          <NavItems items={navItems} />
+          <div className="flex items-center gap-4">
+            <NavbarButton variant="secondary">Login</NavbarButton>
+            <NavbarButton variant="primary">Contact Us</NavbarButton>
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About Us"/>
-        
-        </Menu>
-        </div>
-       </div>
-    </>
+        </NavBody>
+ 
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </MobileNavHeader>
+ 
+          <MobileNavMenu
+            isOpen={isMobileMenuOpen}
+            onClose={() => setIsMobileMenuOpen(false)}
+          >
+            {navItems.map((item, idx) => (
+              <a
+                key={`mobile-link-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="relative text-neutral-600 dark:text-neutral-300"
+              >
+                <span className="block">{item.name}</span>
+              </a>
+            ))}
+            <div className="flex w-full flex-col gap-4">
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full"
+              >
+                Login
+              </NavbarButton>
+              <NavbarButton
+                onClick={() => setIsMobileMenuOpen(false)}
+                variant="primary"
+                className="w-full"
+              >
+                Book a call
+              </NavbarButton>
+            </div>
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
+      
+ 
+      {/* Navbar */}
+    </div>
+  
+    
   )
 }
 
-export default Navbar
+export default Navbarui

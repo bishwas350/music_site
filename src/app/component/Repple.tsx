@@ -1,5 +1,5 @@
+'use client'
 import { Ripple } from '@/components/magicui/ripple'
-import React from 'react'
 
 function Repple() {
   return (
